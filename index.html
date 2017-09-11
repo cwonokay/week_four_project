@@ -6,26 +6,27 @@
   <link rel="stylesheet" href="./main.css">
 </head>
 <body>
+  <div class="container">
   <div class="heading">
     <p>Cornelia's Awesome Music Site</p>
   </div>
   <br>
   <div class="musicPlayer">
-    <audio id=player controls="controls" src=""autoplay></audio>
+    <audio id="player" controls="controls" src=""></audio>
   </div>
   <br>
   <hr>
 
   <div class="form">
-    <form class="musicForm" onsubmit="Submit">
-      <input type="text" id="search" placeholder="Search For Artist"></input>
-      <button id="searchButton">Search</button>
+    <form class="musicForm">
+      <input id="search" type="text" value="" placeholder="Search For Artist"></input>
+      <button id="searchButton" type="button" name="button">Search</button>
     </form>
   </div>
   <br>
 <hr>
-  <div class="container">
-    <div class="results">
+
+    <div id="results">
       <p>Search Results:</p>
     </div>
   </div>

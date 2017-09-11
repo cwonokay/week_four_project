@@ -8,7 +8,7 @@ background: linear-gradient(to right, #514A9D, #24C6DC);
 display: flex;
 justify-content: center;
 }
-p{
+.heading{
   font-size: 60px;
   color: white;
  text-shadow:
@@ -49,3 +49,15 @@ p{
 hr{
   margin: 30px;
 }
+
+#results{
+  display: flex;
+  flex-direction: row;
+  color: white;
+  text-shadow:
+       4px 3px 0 #b21151;
+  align-items: flex-start;
+  align-content: space-between;
+  align-self: auto;
+       flex-wrap: wrap;
+     }

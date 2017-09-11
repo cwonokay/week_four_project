@@ -1,15 +1,18 @@
 
-let play = document.querySelector("#player");
-let serach = document.querySelector("#search");
 let Button = document.querySelector("#searchButton");
+let results = document.getElementById("results");
+let player = document.getElementById("player");
 
+Button.addEventListener('click',function(){
+let player = document.getElementById("player");
+let searcher = document.querySelector("#search");
 
-Button.addEventListener('click',function(event){
-  fetch("https://itunes.apple.com/search?term=jack+johnson&limit=10" + search.value);
-  console.log(search.value);
-    .then(
+let search = searcher.value.split(" ").join("+")
 
-   function(response) {
+let url = "https://itunes.apple.com/search?term=" + search ;
+
+  fetch(url)
+    .then(function(response) {
 
      if (response.status !== 200) {
        console.log(response.status);
@@ -25,29 +28,35 @@ Button.addEventListener('click',function(event){
  .catch(function(err) {
    console.log("Fetch Error :-S", err);
  });
+ })
 
 
 
-
-let Muplayer = document.querySelector('.container');
 
 function playerPlay(data) {
-
+let template = '';
   for (var i = 0; i <data.results.length; i++) {
 
-
-let template = '';
-
-  template += `
-  <div>
-  <div><img src= "${data.image}"></div>
-  <p>Song: ${data.results[i].song}</p>
+  template +=
+  `
+  <div class="song">
+  <img src= "${data.results[i].artworkUrl100}">
+  <p>Song: ${data.results[i].trackName}</p>
   <p>Artist: ${data.results[i].artistName}</p>
   </div>
-
   `;
-  Muplayer.innerHTML += template;
-
 }
+
+  results.innerHTML = template;
+  let song = document.getElementsByClassName('song');
+console.log("songs are: ", song);
+  for (var i = 0; i < song.length; i++) {
+    let result = i
+    song[i].addEventListener('click', function() {
+   console.log("result is: ", data.results[result], result);
+      player.src = data.results[result].previewUrl;
+      player.play();
+    })
+  }
+console.log(data.results[result]);
 };
-});
